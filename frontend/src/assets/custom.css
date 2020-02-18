@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+body,
+html {
+  height: 100%;
+  font-family: 'Oxygen Mono', monospace;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
