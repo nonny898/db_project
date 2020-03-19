@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <% if (rounds.length > 0) { %>
+        <div>
+            <h1 class="round__title">
+                EN/TH
+            </h1>
+            <div class="grid-round">
+                <% for (let round of rounds) { %>
+                <% if (round.language === "EN/TH") { %>
+                <form action="/buy-ticket" method="GET">
+                    <input type="hidden" value="<%= round.round_id %>" name="roundId">
+                    <button class="btn" type="submit"><%= round.time %></button>
+                </form>
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+        <div>
+            <h1 class="round__title">
+                TH/--
+            </h1>
+            <div class="grid-round">
+                <% for (let round of rounds) { %>
+                <% if (round.language === "TH/--") { %>
+                <form action="/buy-ticket" method="GET">
+                    <input type="hidden" value="<%= round.round_id %>" name="roundId">
+                    <button class="btn" type="submit"><%= round.time %></button>
+                </form>
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+        <% } else { %>
+        <h1>No Rounds Found!</h1>
+        <% } %>
+    </main>
+    <%- include('../includes/end.ejs') %>

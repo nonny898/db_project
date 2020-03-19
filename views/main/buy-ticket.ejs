@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <div class="container">
+            <h1 class="round__title">
+                Seating Plan
+            </h1>
+            <img src="\images\pict--movie-theater-seat-layout-cinema-seating-plan.png" alt="seating-plan"
+                style="width: 50%;">
+            <form class="round-form" action="/buy-ticket" method="POST">
+                <div class="form-control">
+                    <% for (let row of rows) { %>
+                    <h5><%= row %></h5>
+                    <% cols.forEach(element => { %>
+                    <% if (cols.indexOf(element) === rows.indexOf(row) ) { %>
+                    <% for (let col of element) { %>
+                    <input type="radio" id="seat" name="seat" value="<%= row + col %>">
+                    <label for="seat"><%= col %></label>
+                    <% } %>
+                    <% } %>
+                    <% }); %>
+                    <% } %>
+                    <input type="hidden" value="<%= round_id %>" name="roundId">
+                    <button class="btn" type="submit">Buy Ticket</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <%- include('../includes/end.ejs') %>

@@ -1,0 +1,45 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/round.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="round-form" action="/admin/<% if (editing) { %>edit-round<% } else { %>add-round<% } %>"
+            method="POST">
+            <div class="form-control">
+                <label for="title">Movie Id</label>
+                <input type="text" name="movieId" id="movieId" value="<%= movieId %>">
+            </div>
+            <div class="form-control">
+                <label for="title">Theater Number</label>
+                <select name="theaterNum">
+                    <option value="<%= 1 %>">1</option>
+                    <option value="<%= 2 %>">2</option>
+                    <option value="<%= 3 %>">3</option>
+                    <option value="<%= 4 %>">4</option>
+                    <option value="<%= 5 %>">5</option>
+                    <option value="<%= 6 %>">6</option>
+                    <option value="<%= 7 %>">7</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label for="time">Time</label>
+                <input type="text" name="time" id="time" value="<% if (editing) { %><%= movie.title %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="english">EN/TH</label>
+                <input type="radio" name="language" id="english" value="<%= "EN/TH" %>">
+                <label for="thai">TH/--</label>
+                <input type="radio" name="language" id="thai" value="<%= "TH/--" %>">
+            </div>
+            <% if (editing) { %>
+            <input type="hidden" value="<%= movie.movie_id %>" name="movieId">
+            <% } %>
+            <button class="btn" type="submit"><% if (editing) { %>Update Movie<% } else { %>Add
+                Round<% } %></button>
+        </form>
+    </main>
+    <%- include('../includes/end.ejs') %>

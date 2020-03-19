@@ -1,0 +1,37 @@
+.round-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+    display: block;
+}
+
+.round-item {
+    width: 20rem;
+    max-width: 95%;
+    margin: 1rem;
+}
+
+.round__title {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.round__price {
+    text-align: center;
+    color: #4d4d4d;
+    margin-bottom: 0.5rem;
+}
+
+.round__description {
+    text-align: center;
+}
+
+.round__actions {
+    padding: 1rem;
+    text-align: center;
+}
+
+.round__actions button,
+.round__actions a {
+    margin: 0.25rem;
+}

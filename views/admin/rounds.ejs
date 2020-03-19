@@ -1,0 +1,49 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/round.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <% if (rounds.length > 0) { %>
+        <div>
+            <h1 class="round__title">
+                EN/TH
+            </h1>
+            <ul>
+                <% for (let round of rounds) { %>
+                <% if (round.language === "EN/TH") { %>
+                <li>
+                    <%= round.time %>
+                    <form action="/admin/delete-round" method="POST">
+                        <input type="hidden" value="<%= round.round_id %>" name="roundId">
+                        <button class="btn" type="submit">Delete</button>
+                    </form>
+                </li>
+                <% } %>
+                <% } %>
+            </ul>
+        </div>
+        <div>
+            <h1 class="round__title">
+                TH/--
+            </h1>
+            <ul>
+                <% for (let round of rounds) { %>
+                <% if (round.language === "TH/--") { %>
+                <li>
+                    <%= round.time %>
+                    <form action="/admin/delete-round" method="POST">
+                        <input type="hidden" value="<%= round.round_id %>" name="roundId">
+                        <button class="btn" type="submit">Delete</button>
+                    </form>
+                </li>
+                <% } %>
+                <% } %>
+            </ul>
+        </div>
+        <% } else { %>
+        <h1>No Rounds Found!</h1>
+        <% } %>
+    </main>
+    <%- include('../includes/end.ejs') %>
