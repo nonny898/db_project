@@ -1119,6 +1119,10 @@ const Round = sequelize.define('round', {
     allowNull: false,
     defaultValue: 0,
   },
+  createdAt: {type: Sequelize.STRING},
+  updatedAt: {
+    type: Sequelize.STRING
+  }
 });
 
 module.exports = Round;

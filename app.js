@@ -1,6 +1,23 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+var mysql = require('mysql');
+
+// TODO: Change to MySQL username and passowrd
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Nonny2540',
+  database: ''
+});
+
+connection.connect();
+
+connection.query('CREATE DATABASE IF NOT EXISTS db_project;', function (error, results, fields) {
+  if (error) throw error;
+});
+
+connection.end();
 
 const errorController = require('./controllers/error');
 const sequelize = require('./utils/database');
